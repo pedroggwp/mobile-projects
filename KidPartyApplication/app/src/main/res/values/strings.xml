@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BuffetApplication</string>
+    <string name="fab_description">Add new item</string>
+    <string name="title_buffet">Buffet - Children</string>
+</resources>

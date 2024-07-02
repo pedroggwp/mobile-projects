@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/childName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="Name"
+            android:textColor="#EF0C0C"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/childAge"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="24dp"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:text="Age"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/imageView"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/childName" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/childIsRestricted"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="24dp"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:text="Restricted"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/imageView"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/childAge" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/childRank"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="24dp"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:text="Rank"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/imageView"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/childIsRestricted" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/childResponsable"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Responsable"-->
+<!--            tools:layout_editor_absoluteX="280dp"-->
+<!--            tools:layout_editor_absoluteY="55dp" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/childPhoneNumber"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Phone Number"-->
+<!--            tools:layout_editor_absoluteX="285dp"-->
+<!--            tools:layout_editor_absoluteY="79dp" />-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

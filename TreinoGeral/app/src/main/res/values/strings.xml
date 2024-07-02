@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Treino - Prática</string>
+    <string name="title_main_activity">Activity Result</string>
+    <string name="button_info_activity">Put your infos</string>
+    <string name="title_info_activity">Put your informations</string>
+    <string name="button_send_info">Send Infos</string>
+    <string name="button_send_info_dialog">Send Infos - Dialog</string>
+</resources>
