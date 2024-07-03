@@ -5,13 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.R;
 import com.example.model.Note;
+import com.example.ui.recyclerview.adapter.listener.OnItemClickListener;
 
 import java.util.List;
 
@@ -19,10 +19,15 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.NoteVi
 
     private final List<Note> allNotes;
     private final Context context;
+    private OnItemClickListener onItemClickListener;
 
     public NoteListAdapter(Context context, List<Note> allNotes) {
         this.context = context;
         this.allNotes = allNotes;
+    }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
     }
 
     @NonNull
@@ -44,10 +49,12 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.NoteVi
         return allNotes.size();
     }
 
+
     class NoteViewHolder extends RecyclerView.ViewHolder {
 
         private final TextView title;
         private final TextView description;
+        private Note note;
 
         public NoteViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -57,12 +64,13 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.NoteVi
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(context,  "View Holder clicado", Toast.LENGTH_SHORT).show();
+                    onItemClickListener.onItemClick(note, getAdapterPosition());
                 }
             });
         }
 
         public void bind(Note note) {
+            this.note = note;
             title.setText(note.getTitle());
             description.setText(note.getDescription());
         }
@@ -71,5 +79,10 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.NoteVi
     public void add(Note note) {
         allNotes.add(note);
         notifyDataSetChanged();
+    }
+
+    public void update(int position, Note note) {
+        allNotes.set(position, note);
+        notifyItemChanged(position);
     }
 }
