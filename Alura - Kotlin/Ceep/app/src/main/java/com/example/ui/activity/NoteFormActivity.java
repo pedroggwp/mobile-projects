@@ -7,9 +7,9 @@ import static com.example.ui.activity.NoteConstants.RESULT_CODE_CREATED_NOTE;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -71,6 +71,7 @@ public class NoteFormActivity extends AppCompatActivity {
 
     private void returnNote(Note createdNote) {
         Intent resultIntent = new Intent();
+
         resultIntent.putExtra(KEY_NOTE, createdNote);
         resultIntent.putExtra(KEY_POSITION, receivedPosition);
         setResult(RESULT_CODE_CREATED_NOTE, resultIntent);

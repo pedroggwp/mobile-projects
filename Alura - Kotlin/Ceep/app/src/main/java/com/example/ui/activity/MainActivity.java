@@ -5,6 +5,7 @@ import static com.example.ui.activity.NoteConstants.REQUEST_CODE_INSERT_NOTE;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 new ActivityResultContracts.StartActivityForResult(),
 
                 result -> {
-                    if (result.getResultCode() == RESULT_OK && result.getData() != null && result.getData().hasExtra(KEY_NOTE)) {
+                    if (result.getResultCode() == REQUEST_CODE_INSERT_NOTE && result.getData() != null && result.getData().hasExtra(KEY_NOTE)) {
                         Note note = (Note) result.getData().getSerializableExtra(KEY_NOTE);
                         new NoteDAO().insertNote(note);
                         adapter.add(note);
