@@ -1,11 +1,11 @@
 package com.example.ui.activity;
 
 import static com.example.ui.activity.NoteConstants.KEY_NOTE;
+import static com.example.ui.activity.NoteConstants.KEY_POSITION;
 import static com.example.ui.activity.NoteConstants.REQUEST_CODE_INSERT_NOTE;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 result -> {
                     if (result.getResultCode() == REQUEST_CODE_INSERT_NOTE && result.getData() != null && result.getData().hasExtra(KEY_NOTE) && result.getData().hasExtra("position")) {
                         Note receivedNote = (Note) result.getData().getSerializableExtra(KEY_NOTE);
-                        int receivedPosition = result.getData().getIntExtra("position", -1);
+                        int receivedPosition = result.getData().getIntExtra(KEY_POSITION, -1);
                         new NoteDAO().updateNote(receivedPosition, receivedNote);
                         adapter.update(receivedPosition, receivedNote);
                     }
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent openFormWithNote = new Intent(MainActivity.this, NoteFormActivity.class);
 
                 openFormWithNote.putExtra(KEY_NOTE, note);
-                openFormWithNote.putExtra("position", position);
+                openFormWithNote.putExtra(KEY_POSITION, position);
 
                 editNoteLauncher.launch(openFormWithNote);
             }
