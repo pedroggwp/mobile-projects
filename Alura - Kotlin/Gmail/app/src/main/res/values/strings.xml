@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">GmailRecyclerView</string>
+    <string name="app_name">Gmail</string>
+    <string name="add_email">Add a new e-mail</string>
 </resources>
