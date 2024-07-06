@@ -30,7 +30,7 @@
         android:layout_below="@id/app_bar"
         android:layout_marginTop="4dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/email_item"/>
+        tools:listitem="@layout/email_item" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
