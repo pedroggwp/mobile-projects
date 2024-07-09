@@ -6,4 +6,5 @@
     </style>
 
     <style name="Theme.GmailRecyclerView" parent="Base.Theme.GmailRecyclerView" />
+    <item name="windowActionModeOverlay" type="bool">true</item>
 </resources>

@@ -4,6 +4,8 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
+import android.util.Log;
+import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +23,10 @@ import java.util.List;
 
 public class EmailAdapter extends RecyclerView.Adapter<EmailAdapter.EmailViewHolder> {
 
+    private EmailAdapterListener listener;
     private final List<Email> emails;
+    public final SparseBooleanArray selectedItems = new SparseBooleanArray();
+    private int currentSelectedPos;
 
     public EmailAdapter(List<Email> emails) {
         this.emails = emails;
@@ -29,6 +34,10 @@ public class EmailAdapter extends RecyclerView.Adapter<EmailAdapter.EmailViewHol
 
     public List<Email> getEmails() {
         return emails;
+    }
+
+    public void setListener(EmailAdapterListener listener) {
+        this.listener = listener;
     }
 
     @NonNull
@@ -47,11 +56,49 @@ public class EmailAdapter extends RecyclerView.Adapter<EmailAdapter.EmailViewHol
     public void onBindViewHolder(@NonNull EmailViewHolder holder, int position) {
         Email email = emails.get(position); // pegando item atual da lista
         holder.bind(email);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (selectedItems.size() > 0 && listener != null) {
+                    listener.onItemClick(holder.getAdapterPosition()); // se der erro, trocar por position
+                }
+            }
+        });
+
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                if (listener != null) {
+                    listener.onItemLongClick(holder.getAdapterPosition());
+                }
+                return true;
+            }
+        });
+
+        if (currentSelectedPos == position) currentSelectedPos = -1;
     }
 
     @Override
     public int getItemCount() {
         return emails.size();
+    }
+
+    public void deleteEmails() {
+        Log.i("Teste", "delete email");
+    }
+
+    public void toggleSelection(int position) {
+        currentSelectedPos = position;
+
+        if (selectedItems.get(position)) {
+            selectedItems.delete(position);
+            emails.get(position).setSelected(false);
+        } else {
+            selectedItems.put(position, true);
+            emails.get(position).setSelected(true);
+        }
+        notifyItemChanged(position);
     }
 
     // ViewHolder para gerenciar as views (email_item.xml)
@@ -100,5 +147,10 @@ public class EmailAdapter extends RecyclerView.Adapter<EmailAdapter.EmailViewHol
         shapeDrawable.getPaint().setColor(color);
 
         return shapeDrawable;
+    }
+
+    public interface EmailAdapterListener {
+        void onItemClick(int position);
+        void onItemLongClick(int position);
     }
 }
