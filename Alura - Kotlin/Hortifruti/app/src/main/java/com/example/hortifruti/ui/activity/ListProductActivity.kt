@@ -7,26 +7,22 @@ import com.example.hortifruti.R
 import com.example.hortifruti.dao.ProductsDAO
 import com.example.hortifruti.databinding.ActivityListProductBinding
 import com.example.hortifruti.ui.recyclerview.adapter.ProductAdapter
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ListProductActivity : AppCompatActivity(R.layout.activity_list_product) {
 
-    private val adapter by lazy {
-        ProductAdapter(this, dao.findAll())
-    }
+    private val dao = ProductsDAO()
+    private val adapter = ProductAdapter(this, dao.findAll())
 
     private val binding by lazy {
         ActivityListProductBinding.inflate(layoutInflater)
     }
 
-    private val dao = ProductsDAO()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(binding.root)
 
         configRecyclerView(binding)
         configFloatingActionButton(binding)
-        setContentView(binding.root)
     }
 
     override fun onResume() {

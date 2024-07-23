@@ -1,14 +1,10 @@
 package com.example.hortifruti.ui.activity
 
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
-import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.example.hortifruti.R
 import com.example.hortifruti.dao.ProductsDAO
 import com.example.hortifruti.databinding.ActivityFormProductBinding
-import com.example.hortifruti.databinding.ActivityListProductBinding
 import com.example.hortifruti.model.Product
 import java.math.BigDecimal
 

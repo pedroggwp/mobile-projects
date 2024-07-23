@@ -3,9 +3,7 @@ package com.example.hortifruti.ui.recyclerview.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.hortifruti.R
 import com.example.hortifruti.databinding.ItemProductBinding
 import com.example.hortifruti.model.Product
 
