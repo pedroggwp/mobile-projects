@@ -2,11 +2,11 @@ package com.example.hortifruti.ui.recyclerview.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hortifruti.R
+import com.example.hortifruti.databinding.ItemProductBinding
 import com.example.hortifruti.model.Product
 
 class ProductAdapter(
@@ -17,13 +17,13 @@ class ProductAdapter(
     private val products = products.toMutableList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
-        val view = LayoutInflater.from(context).inflate(
-            R.layout.item_product,
+        val binding = ItemProductBinding.inflate(
+            LayoutInflater.from(context),
             parent,
             false
         )
 
-        return ProductViewHolder(view)
+        return ProductViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
@@ -39,16 +39,14 @@ class ProductAdapter(
         notifyDataSetChanged()
     }
 
-    class ProductViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class ProductViewHolder(binding: ItemProductBinding) : RecyclerView.ViewHolder(binding.root) {
+        private val name = binding.itemProductName
+        private val description = binding.itemProductDescription
+        private val value = binding.itemProductValue
 
         fun bind(product: Product) {
-            val name = itemView.findViewById<TextView>(R.id.item_product_name)
             name.text = product.name
-
-            val description = itemView.findViewById<TextView>(R.id.item_product_description)
             description.text = product.description
-
-            val value = itemView.findViewById<TextView>(R.id.item_product_value)
             value.text = product.value.toPlainString()
         }
     }

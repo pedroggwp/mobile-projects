@@ -7,6 +7,8 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.example.hortifruti.R
 import com.example.hortifruti.dao.ProductsDAO
+import com.example.hortifruti.databinding.ActivityFormProductBinding
+import com.example.hortifruti.databinding.ActivityListProductBinding
 import com.example.hortifruti.model.Product
 import java.math.BigDecimal
 
@@ -14,10 +16,15 @@ class FormProductActivity : AppCompatActivity(R.layout.activity_form_product) {
 
     private val dao = ProductsDAO()
 
+    private val binding by lazy {
+        ActivityFormProductBinding.inflate(layoutInflater)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(binding.root)
 
-        val button = findViewById<Button>(R.id.button_save)
+        val button = binding.buttonSave
         button.setOnClickListener {
             val createdProduct = createProduct()
             dao.add(createdProduct)
@@ -28,13 +35,13 @@ class FormProductActivity : AppCompatActivity(R.layout.activity_form_product) {
     }
 
     private fun createProduct(): Product {
-        val fieldName = findViewById<EditText>(R.id.form_name)
+        val fieldName = binding.formName
         val name: String = fieldName.text.toString()
 
-        val fieldDescription = findViewById<EditText>(R.id.form_description)
+        val fieldDescription = binding.formDescription
         val description: String = fieldDescription.text.toString()
 
-        val fieldValue = findViewById<EditText>(R.id.form_value)
+        val fieldValue = binding.formValue
         val valueStr: String = fieldValue.text.toString()
 
         val value = if (valueStr.isBlank()) {
