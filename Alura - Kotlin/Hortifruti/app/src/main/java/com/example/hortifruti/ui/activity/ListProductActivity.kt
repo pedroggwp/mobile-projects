@@ -36,7 +36,7 @@ class ListProductActivity : AppCompatActivity(R.layout.activity_list_product) {
     }
 
     private fun configFloatingActionButton(binding: ActivityListProductBinding) {
-        val fab = binding.listProductFloatingActionButton
+        val fab = binding.listProductExtendedFloatingActionButton
         fab.setOnClickListener {
             val intent = Intent(this, FormProductActivity::class.java)
             startActivity(intent)

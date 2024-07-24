@@ -1,11 +1,14 @@
 package com.example.hortifruti.ui.recyclerview.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hortifruti.databinding.ItemProductBinding
 import com.example.hortifruti.model.Product
+import java.text.NumberFormat
+import java.util.Locale
 
 class ProductAdapter(
     private val context: Context,
@@ -41,11 +44,14 @@ class ProductAdapter(
         private val name = binding.itemProductName
         private val description = binding.itemProductDescription
         private val value = binding.itemProductValue
+        private val formatter: NumberFormat = NumberFormat.getCurrencyInstance(Locale("pt", "br"))
 
         fun bind(product: Product) {
             name.text = product.name
             description.text = product.description
-            value.text = product.value.toPlainString()
+            Log.d("formatter", formatter.toString())
+            val valueInCoin: String = formatter.format(product.value)
+            value.text = valueInCoin
         }
     }
 }
