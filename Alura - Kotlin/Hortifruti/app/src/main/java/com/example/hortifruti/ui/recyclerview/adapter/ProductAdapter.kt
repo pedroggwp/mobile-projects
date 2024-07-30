@@ -3,9 +3,11 @@ package com.example.hortifruti.ui.recyclerview.adapter
 import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hortifruti.databinding.ItemProductBinding
+import com.example.hortifruti.extensions.tryToLoadImage
 import com.example.hortifruti.model.Product
 import java.text.NumberFormat
 import java.util.Locale
@@ -40,7 +42,7 @@ class ProductAdapter(
         notifyDataSetChanged()
     }
 
-    class ProductViewHolder(binding: ItemProductBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ProductViewHolder(private val binding: ItemProductBinding) : RecyclerView.ViewHolder(binding.root) {
         private val name = binding.itemProductName
         private val description = binding.itemProductDescription
         private val value = binding.itemProductValue
@@ -52,6 +54,16 @@ class ProductAdapter(
             Log.d("formatter", formatter.toString())
             val valueInCoin: String = formatter.format(product.value)
             value.text = valueInCoin
+
+            val visibility = if (product.imageUrl != null) {
+                View.VISIBLE
+            } else {
+                View.GONE
+            }
+
+            binding.imageView.visibility = visibility
+
+            binding.imageView.tryToLoadImage(product.imageUrl)
         }
     }
 }

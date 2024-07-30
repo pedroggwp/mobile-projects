@@ -52,4 +52,5 @@ dependencies {
     implementation(libs.material.v1120)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.coil)
 }
