@@ -1,5 +1,6 @@
 package com.example.mobile_pedrohenrique_2.ui.recyclerview.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -43,6 +44,7 @@ class ExamAdapter(
 
     inner class ExamViewHolder(private val binding: ItemExamBinding) : RecyclerView.ViewHolder(binding.root) {
 
+        @SuppressLint("SetTextI18n")
         fun bind(exam: Exam) {
             val crachaNumber = binding.itemExamCollaboratorNumber
             crachaNumber.text = "Colaborador: " + exam.crachaNumber.toString()

@@ -2,7 +2,6 @@ package com.example.hortifruti.ui.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.hortifruti.R
 import com.example.hortifruti.databinding.ActivityProductDetailsBinding
 import com.example.hortifruti.extensions.formatToBrasilianCoin
 import com.example.hortifruti.extensions.tryToLoadImage
