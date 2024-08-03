@@ -36,7 +36,7 @@ class FormProductActivity : AppCompatActivity(R.layout.activity_form_product) {
         }
 
         binding.activityFormProductImage.setOnClickListener {
-            FormImageDialog(this).show {
+            FormImageDialog(this).show(url) {
                 image ->
                     url = image
                     binding.activityFormProductImage.tryToLoadImage(url)
