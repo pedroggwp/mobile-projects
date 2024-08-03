@@ -9,10 +9,10 @@ import com.example.hortifruti.databinding.FormImageBinding
 import com.example.hortifruti.extensions.tryToLoadImage
 
 class FormImageDialog(
-    val context: Context
+    private val context: Context
 ) {
 
-    fun show(imageView: ImageView) {
+    fun show(whenImageLoaded: (urlImage: String) -> Unit) {
         val binding = FormImageBinding.inflate(LayoutInflater.from(context))
 
         // Carregar imagem passada na url
@@ -27,7 +27,7 @@ class FormImageDialog(
             .setPositiveButton("Confirmar") { _, _ ->
                 val url = binding.formImageUrl.text.toString()
                 Log.i("FormularioImagemDialog", "mostra: $url")
-                imageView.tryToLoadImage(url)
+                whenImageLoaded(url)
             }
             .setNegativeButton("Cancelar") {_, _ ->
 
