@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hortifruti.databinding.ItemProductBinding
+import com.example.hortifruti.extensions.formatToBrasilianCoin
 import com.example.hortifruti.extensions.tryToLoadImage
 import com.example.hortifruti.model.Product
 import java.text.NumberFormat
@@ -14,7 +15,10 @@ import java.util.Locale
 
 class ProductAdapter(
     private val context: Context,
-    products: List<Product>
+    products: List<Product>,
+
+    // declaração da função para o listener do adapter
+    var whenClickedOnItem: (product: Product) -> Unit = {}
 ) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     private val products = products.toMutableList()
@@ -42,17 +46,34 @@ class ProductAdapter(
         notifyDataSetChanged()
     }
 
-    class ProductViewHolder(private val binding: ItemProductBinding) : RecyclerView.ViewHolder(binding.root) {
-        private val name = binding.itemProductName
-        private val description = binding.itemProductDescription
-        private val value = binding.itemProductValue
-        private val formatter: NumberFormat = NumberFormat.getCurrencyInstance(Locale("pt", "br"))
+    // utilização do inner na classe interna para acessar membros da classe superior, nesse caso, a utilização da variável whenClickedOnItem
+    inner class ProductViewHolder(private val binding: ItemProductBinding) : RecyclerView.ViewHolder(binding.root) {
+        // Considerando que o ViewHolder modifica de valor com base na posição, é necessário o uso de properties mutáveis, para evitar nullables
+        // utilizamos o lateinit, properties que podem ser inicializar depois
+
+        private lateinit var product: Product
+
+        init {
+            // implementação do listener do adapter
+            itemView.setOnClickListener {
+                // verificação da existência de valores em property lateinit
+                if (::product.isInitialized) {
+                    whenClickedOnItem(product)
+                }
+            }
+        }
 
         fun bind(product: Product) {
+            this.product = product
+
+            val name = binding.itemProductName
             name.text = product.name
+
+            val description = binding.itemProductDescription
             description.text = product.description
-            Log.d("formatter", formatter.toString())
-            val valueInCoin: String = formatter.format(product.value)
+
+            val value = binding.itemProductValue
+            val valueInCoin: String = product.value.formatToBrasilianCoin()
             value.text = valueInCoin
 
             val visibility = if (product.imageUrl != null) {

@@ -1,13 +1,10 @@
 package com.example.hortifruti.ui.activity
 
 import android.os.Bundle
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import coil.load
 import com.example.hortifruti.R
 import com.example.hortifruti.dao.ProductsDAO
 import com.example.hortifruti.databinding.ActivityFormProductBinding
-import com.example.hortifruti.databinding.FormImageBinding
 import com.example.hortifruti.extensions.tryToLoadImage
 import com.example.hortifruti.model.Product
 import com.example.hortifruti.ui.dialog.FormImageDialog
@@ -26,6 +23,7 @@ class FormProductActivity : AppCompatActivity(R.layout.activity_form_product) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        title = "Register product"
 
         val button = binding.buttonSave
         button.setOnClickListener {

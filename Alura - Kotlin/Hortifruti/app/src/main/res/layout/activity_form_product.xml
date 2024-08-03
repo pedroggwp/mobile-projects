@@ -86,7 +86,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:layout_marginTop="474dp"
-            android:backgroundTint="@color/purple_500"
             android:text="SAVE"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"

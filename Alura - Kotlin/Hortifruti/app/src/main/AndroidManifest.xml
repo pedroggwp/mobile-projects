@@ -15,9 +15,12 @@
         android:theme="@style/Theme.Hortifruti"
         tools:targetApi="31">
         <activity
+            android:name=".ui.activity.ProductDetailsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Hortifruti.NoActionBar"/>
+        <activity
             android:name=".ui.activity.FormProductActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".ui.activity.ListProductActivity"
             android:exported="true">
