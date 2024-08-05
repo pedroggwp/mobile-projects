@@ -29,6 +29,6 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 material-v1120 = { module = "com.google.android.material:material", version.ref = "materialVersion" }
 
 [plugins]
-android-application = { id = "com.android.application", version.ref = "agp" }
+android-application = { id = "com.android.application", version = "8.2.2" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 
