@@ -23,6 +23,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
+        android:contentDescription="TODO"
         android:cropToPadding="false"
         android:scaleType="centerCrop"
         android:visibility="invisible"
@@ -30,8 +31,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/padrao"
-        android:contentDescription="TODO" />
+        app:srcCompat="@drawable/padrao" />
 
     <Button
         android:id="@+id/image_capture_button"
@@ -68,25 +68,25 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/bt_fundo"
+        android:contentDescription="TODO"
         android:gravity="center_horizontal|center_vertical"
         android:src="@drawable/icon_lente"
         android:textAlignment="gravity"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/gallery"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        android:contentDescription="TODO" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/gallery"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/bt_fundo"
+        android:contentDescription="TODO"
         android:src="@drawable/ic_galeria_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/lente"
-        android:contentDescription="TODO" />
+        app:layout_constraintStart_toEndOf="@+id/lente" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

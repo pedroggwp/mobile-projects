@@ -1,5 +1,6 @@
 plugins {
     id("com.android.application")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -47,4 +48,7 @@ dependencies {
     implementation("androidx.camera:camera-video:1.2.2")
     implementation("androidx.camera:camera-view:1.2.2")
     implementation("androidx.camera:camera-extensions:1.2.2")
+
+    implementation(platform("com.google.firebase:firebase-bom:33.1.2"))
+    implementation("com.google.firebase:firebase-storage")
 }
