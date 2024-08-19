@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/getId"
+        android:layout_width="170dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="36dp"
+        android:text="get photo id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/getPhotos" />
+    <Button
+        android:id="@+id/deleteFeed"
+        android:layout_width="170dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:text="delete feed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/putFeeds" />
+    <Button
+        android:id="@+id/putFeeds"
+        android:layout_width="170dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="28dp"
+        android:text="put feed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/postFeed" />
+    <Button
+        android:id="@+id/getPhotos"
+        android:layout_width="170dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="228dp"
+        android:text="get all photos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/postFeed"
+        android:layout_width="170dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="32dp"
+        android:text="post feed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/getId" />
+</androidx.constraintlayout.widget.ConstraintLayout>
