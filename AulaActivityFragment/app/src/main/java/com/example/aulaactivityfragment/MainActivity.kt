@@ -17,9 +17,22 @@ class MainActivity : AppCompatActivity() {
 
         buttonAbrir = findViewById(R.id.button_abrir)
         buttonAbrir.setOnClickListener {
-
-//            finish()
             val intent = Intent(this, DetalhesActivity::class.java)
+
+            // passando dados para outra activity
+//            intent.putExtra("filme", "The Witcher")
+//            intent.putExtra("classificacao", 5)
+//            intent.putExtra("avaliacoes", 9.2)
+
+            val filme = Filme(
+                "Sem Limites",
+                "teste",
+                4.5,
+                "Pedro",
+                "Netflix"
+            )
+
+            intent.putExtra("filme", filme)
 
             startActivity(intent)
         }
