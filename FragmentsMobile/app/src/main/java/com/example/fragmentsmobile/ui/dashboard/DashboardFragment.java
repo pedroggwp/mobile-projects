@@ -1,18 +1,17 @@
 package com.example.fragmentsmobile.ui.dashboard;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.example.fragmentsmobile.R;
-import com.example.fragmentsmobile.databinding.FragmentDashboardBinding;
 
 public class DashboardFragment extends Fragment {
 
@@ -33,6 +32,15 @@ public class DashboardFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
         Button bt = view.findViewById(R.id.button);
 
+        bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(requireContext(), "Olá", Toast.LENGTH_SHORT).show();
+
+//                Intent intent = new Intent(getActivity(), MainActivity2.class);
+//                startActivity(intent);
+            }
+        });
 
         return view;
     }
